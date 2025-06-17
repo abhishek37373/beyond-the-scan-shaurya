@@ -35,7 +35,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="min-h-screen relative flex items-center justify-center bg-cover bg-center pt-16"
+      className="full-screen relative flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`
       }}
@@ -63,18 +63,18 @@ const HeroSection = () => {
         }}
       ></div>
 
-      {/* Hero Text - Mobile-first typography */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
+      {/* Hero Text - Enhanced mobile-first typography */}
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
         {textVisible && (
           <>
             <h1 
-              className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-mono mb-4 sm:mb-6 text-reveal leading-tight font-medium"
-              style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-light)' }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-mono mb-4 sm:mb-6 text-reveal leading-tight"
+              style={{ fontFamily: 'var(--font-mono)' }}
             >
               Being a radiologist, you see what others can't.
             </h1>
             <h2 
-              className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-reveal-delayed leading-tight font-medium"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-warm-gold text-reveal-delayed leading-tight"
               style={{ 
                 fontFamily: 'var(--font-serif)',
                 color: 'var(--warm-gold)'
@@ -92,7 +92,7 @@ const HeroSection = () => {
           <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-2 sm:h-3 bg-white rounded-full mt-1 sm:mt-2 animate-bounce"></div>
           </div>
-          <p className="text-xs sm:text-sm mt-2 text-center text-white/80 font-medium">Scroll to explore</p>
+          <p className="text-xs sm:text-sm mt-2 text-center text-white/80">Scroll to explore</p>
         </div>
       )}
     </section>
