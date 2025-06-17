@@ -47,7 +47,7 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
   return (
     <section 
       ref={sectionRef}
-      className="full-screen scan-section flex flex-col items-center justify-center relative"
+      className="min-h-screen scan-section flex flex-col items-center justify-center relative py-8 sm:py-12"
       style={{ backgroundColor: 'var(--dark-bg)' }}
     >
       {/* Scan Line */}
@@ -55,51 +55,57 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
         <div className="scan-line animated"></div>
       )}
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        {/* Headline - Enhanced mobile typography */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center w-full">
+        {/* Headline - Mobile-first typography */}
         {isVisible && (
           <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-reveal leading-tight"
+            className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-reveal leading-tight"
             style={{ color: 'var(--scan-blue)' }}
           >
             {headline}
           </h2>
         )}
 
-        {/* Image Container - Better mobile sizing */}
-        <div className="relative mb-6 sm:mb-8 inline-block">
-          <img
-            src={imageUrl}
-            alt={headline}
-            className={`w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl h-auto rounded-lg shadow-2xl transition-all duration-2000 ${
-              imageRevealed ? '' : 'xray-filter'
-            }`}
-            style={{
-              filter: imageRevealed ? 'none' : 'grayscale(1) sepia(1) hue-rotate(180deg) saturate(3)'
-            }}
-          />
+        {/* Image Container - Responsive sizing with proper aspect ratio */}
+        <div className="relative mb-6 sm:mb-8 flex justify-center">
+          <div className="w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl">
+            <img
+              src={imageUrl}
+              alt={headline}
+              className={`w-full h-auto rounded-lg shadow-2xl transition-all duration-2000 object-cover ${
+                imageRevealed ? '' : 'xray-filter'
+              }`}
+              style={{
+                filter: imageRevealed ? 'none' : 'grayscale(1) sepia(1) hue-rotate(180deg) saturate(3)',
+                aspectRatio: 'auto'
+              }}
+              loading="lazy"
+            />
+          </div>
         </div>
 
-        {/* Caption - Enhanced mobile typography */}
+        {/* Caption - Mobile-first typography */}
         {captionVisible && (
-          <p 
-            className={`text-lg sm:text-xl md:text-2xl text-reveal leading-relaxed px-2 ${
-              isPlayful ? 'font-script text-2xl sm:text-3xl' : ''
-            }`}
-            style={{ 
-              color: 'var(--text-light)',
-              fontFamily: isPlayful ? 'var(--font-script)' : 'var(--font-sans)'
-            }}
-          >
-            {hasHeart ? (
-              <>
-                {caption.replace(' ❤️', '')}
-                <span className="pulse-heart text-red-500 ml-2">❤️</span>
-              </>
-            ) : (
-              caption
-            )}
-          </p>
+          <div className="max-w-4xl mx-auto px-2">
+            <p 
+              className={`text-base xs:text-lg sm:text-xl md:text-2xl text-reveal leading-relaxed ${
+                isPlayful ? 'font-script text-xl xs:text-2xl sm:text-3xl' : 'font-medium'
+              }`}
+              style={{ 
+                color: 'var(--text-light)',
+                fontFamily: isPlayful ? 'var(--font-script)' : 'var(--font-sans)'
+              }}
+            >
+              {hasHeart ? (
+                <>
+                  {caption.replace(' ❤️', '')}
+                  <span className="pulse-heart text-red-500 ml-2 inline-block">❤️</span>
+                </>
+              ) : (
+                caption
+              )}
+            </p>
+          </div>
         )}
       </div>
     </section>

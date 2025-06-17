@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -16,6 +17,14 @@ export default {
 			screens: {
 				'2xl': '1400px'
 			}
+		},
+		screens: {
+			'xs': '380px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1400px',
 		},
 		extend: {
 			colors: {
@@ -61,7 +70,9 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'scan-blue': '#00BFFF',
+				'warm-gold': '#FFD700',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,6 +100,12 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			fontFamily: {
+				'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+				'mono': ['Roboto Mono', 'ui-monospace', 'SFMono-Regular'],
+				'serif': ['Lora', 'ui-serif', 'Georgia'],
+				'script': ['Dancing Script', 'cursive'],
 			}
 		}
 	},
