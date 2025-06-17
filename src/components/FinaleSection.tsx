@@ -50,7 +50,7 @@ const FinaleSection = () => {
       <audio
         ref={blipAudioRef}
         preload="auto"
-        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxXp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+"
+        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxXp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+"
       />
 
       <section 
@@ -69,25 +69,25 @@ const FinaleSection = () => {
           />
         </svg>
 
-        {/* Vital Signs Monitor */}
+        {/* Vital Signs Monitor - Enhanced mobile responsiveness */}
         <div 
           id="vital-signs-monitor"
-          className={`relative z-10 w-full max-w-4xl mx-auto px-6 text-center ${
+          className={`relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 text-center ${
             monitorFaded ? 'fade-out' : ''
           }`}
         >
           <h2 
-            className="text-4xl md:text-6xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight"
             style={{ color: 'var(--scan-blue)' }}
           >
             Final Analysis: The Heartbeat of a Hero
           </h2>
-          <p className="text-xl md:text-2xl mb-12 text-gray-300">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 text-gray-300">
             Tap each letter to reveal the core components.
           </p>
 
-          {/* Interactive Cards Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-8">
+          {/* Interactive Cards Grid - Better mobile layout */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2 sm:gap-4 mb-6 sm:mb-8">
             {cardData.map((card, index) => (
               <div
                 key={index}
@@ -95,11 +95,11 @@ const FinaleSection = () => {
                 onClick={() => handleCardFlip(index)}
               >
                 <div className={`card-flip ${flippedCards.has(index) ? 'is-flipped' : ''}`}>
-                  <div className="card-front h-24 md:h-32">
-                    <span className="text-center">{card.front}</span>
+                  <div className="card-front h-16 sm:h-20 md:h-24 lg:h-32">
+                    <span className="text-center text-xs sm:text-sm md:text-base">{card.front}</span>
                   </div>
-                  <div className="card-back h-24 md:h-32">
-                    <span className="text-center">{card.back}</span>
+                  <div className="card-back h-16 sm:h-20 md:h-24 lg:h-32">
+                    <span className="text-center text-xs sm:text-sm md:text-base">{card.back}</span>
                   </div>
                 </div>
               </div>
@@ -107,19 +107,19 @@ const FinaleSection = () => {
           </div>
         </div>
 
-        {/* Prescription Pad */}
+        {/* Prescription Pad - Enhanced mobile design */}
         {showPrescription && (
           <div 
             id="prescription-pad"
-            className="absolute inset-0 flex items-center justify-center z-20 fade-in"
+            className="absolute inset-0 flex items-center justify-center z-20 fade-in px-4 sm:px-6"
           >
-            <div className="prescription-pad">
+            <div className="prescription-pad max-w-sm sm:max-w-md md:max-w-lg w-full">
               <div className="text-center mb-4">
-                <h3 className="text-2xl font-bold text-blue-600 mb-2">Dr. Love's Clinic</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600 mb-2">Family Medical Center</h3>
                 <div className="h-px bg-gray-300 mb-4"></div>
               </div>
               
-              <pre className="typewriter text-sm md:text-base leading-relaxed">
+              <pre className="typewriter text-xs sm:text-sm md:text-base leading-relaxed">
 {`================================
 Rx: Shaurya
 

@@ -55,16 +55,16 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Scan Layer Sections */}
+      {/* Scan Layer Sections - Fixed image order */}
       <ScanLayer
         headline="The Original Blueprint"
-        imageUrl="/lovable-uploads/26782cf7-77d6-4d45-bd33-16267588960a.png"
+        imageUrl="/lovable-uploads/64c68798-0f66-4d60-bb84-440495f1994f.png"
         caption="With Papaji & Mummy – your first fans!"
       />
 
       <ScanLayer
         headline="An Unbreakable Bond"
-        imageUrl="/lovable-uploads/64c68798-0f66-4d60-bb84-440495f1994f.png"
+        imageUrl="/lovable-uploads/26782cf7-77d6-4d45-bd33-16267588960a.png"
         caption="Abhishek, Kanupriya and you – Sibling goals!"
       />
 

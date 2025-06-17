@@ -95,6 +95,7 @@ body {
   background-color: var(--dark-bg);
   color: var(--text-light);
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 /* Utility classes */
@@ -168,9 +169,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 8px;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 0.875rem;
 }
 
 .card-front {
@@ -197,11 +198,10 @@ body {
   background: var(--paper-white);
   color: #333;
   font-family: var(--font-mono);
-  padding: 25px;
+  padding: 16px;
   border: 1px solid #DDD;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
   border-radius: 8px;
-  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -238,13 +238,13 @@ body {
 /* Audio control */
 .audio-control {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 16px;
+  right: 16px;
   background: rgba(0, 191, 255, 0.2);
   border: 2px solid var(--scan-blue);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,13 +260,37 @@ body {
 
 /* Section spacing */
 .scan-section {
-  padding: 60px 20px;
+  padding: 40px 16px;
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
+/* Enhanced mobile responsive design */
+@media (max-width: 640px) {
   .scan-section {
-    padding: 40px 15px;
+    padding: 32px 12px;
+  }
+  
+  .card-front,
+  .card-back {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+  
+  .prescription-pad {
+    padding: 12px;
+    margin: 0 8px;
+  }
+  
+  .audio-control {
+    width: 40px;
+    height: 40px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+@media (min-width: 640px) {
+  .scan-section {
+    padding: 60px 20px;
   }
   
   .card-front,
@@ -276,8 +300,14 @@ body {
   }
   
   .prescription-pad {
-    padding: 20px;
-    margin: 0 15px;
+    padding: 25px;
+  }
+  
+  .audio-control {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
   }
 }
 

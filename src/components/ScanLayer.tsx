@@ -55,23 +55,23 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
         <div className="scan-line animated"></div>
       )}
 
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        {/* Headline */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        {/* Headline - Enhanced mobile typography */}
         {isVisible && (
           <h2 
-            className="text-3xl md:text-5xl font-bold mb-12 text-reveal"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-reveal leading-tight"
             style={{ color: 'var(--scan-blue)' }}
           >
             {headline}
           </h2>
         )}
 
-        {/* Image Container */}
-        <div className="relative mb-8 inline-block">
+        {/* Image Container - Better mobile sizing */}
+        <div className="relative mb-6 sm:mb-8 inline-block">
           <img
             src={imageUrl}
             alt={headline}
-            className={`w-full max-w-2xl h-auto rounded-lg shadow-2xl transition-all duration-2000 ${
+            className={`w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl h-auto rounded-lg shadow-2xl transition-all duration-2000 ${
               imageRevealed ? '' : 'xray-filter'
             }`}
             style={{
@@ -80,11 +80,11 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
           />
         </div>
 
-        {/* Caption */}
+        {/* Caption - Enhanced mobile typography */}
         {captionVisible && (
           <p 
-            className={`text-xl md:text-2xl text-reveal ${
-              isPlayful ? 'font-script text-3xl' : ''
+            className={`text-lg sm:text-xl md:text-2xl text-reveal leading-relaxed px-2 ${
+              isPlayful ? 'font-script text-2xl sm:text-3xl' : ''
             }`}
             style={{ 
               color: 'var(--text-light)',
