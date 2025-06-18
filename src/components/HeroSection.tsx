@@ -35,11 +35,11 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="min-h-screen relative flex items-center justify-center"
+      className="min-h-screen relative flex items-center justify-center hero-section"
       style={{
         backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: '30% center', // Improved mobile positioning
+        backgroundPosition: '35% center', // Default mobile positioning
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -56,7 +56,7 @@ const HeroSection = () => {
         style={{
           backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: '30% center', // Improved mobile positioning
+          backgroundPosition: '35% center', // Consistent positioning
           backgroundRepeat: 'no-repeat'
         }}
       ></div>

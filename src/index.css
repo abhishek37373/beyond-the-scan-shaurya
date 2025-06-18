@@ -224,6 +224,7 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .medical-card-front::before,
@@ -236,11 +237,21 @@ body {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
+  z-index: -1;
 }
 
 .medical-card-container:hover .medical-card-front::before,
 .medical-card-container:hover .medical-card-back::before {
   left: 100%;
+}
+
+/* Ensure text is always visible with proper z-index */
+.medical-card-front > *,
+.medical-card-back > * {
+  position: relative;
+  z-index: 2;
+  color: inherit;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .medical-card-front {
@@ -329,10 +340,17 @@ body {
 }
 
 /* Mobile-first responsive design */
+@media (max-width: 420px) {
+  /* Optimized for 420px width screens */
+  .hero-section {
+    background-position: 40% center !important;
+  }
+}
+
 @media (max-width: 640px) {
   /* Hero image mobile optimization */
   .hero-section {
-    background-position: 25% center !important;
+    background-position: 35% center !important;
   }
   
   .medical-card-front,
