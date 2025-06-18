@@ -38,9 +38,9 @@ const HeroSection = () => {
     <section 
       className="min-h-screen relative flex items-center justify-center"
       style={{
-        backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
+        backgroundImage: `url('/solo-hero.jpg')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'left center', // Mobile-first: focus on left side where face is
+        backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -55,9 +55,9 @@ const HeroSection = () => {
           colorReveal ? '' : 'xray-filter'
         }`}
         style={{
-          backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
+          backgroundImage: `url('/solo-hero.jpg')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'left center', // Ensure face visibility on mobile
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat'
         }}
       ></div>

@@ -45,14 +45,16 @@ const FinaleSection = () => {
   };
 
   const handleCloseAndScrollTop = () => {
+    // Reset all cards to original state
+    setFlippedCards(new Set());
+    setMonitorFaded(false);
+    setShowPrescription(false);
+    
+    // Scroll to top
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-    // Optionally hide the prescription after scrolling
-    setTimeout(() => {
-      setShowPrescription(false);
-    }, 800);
   };
 
   return (
@@ -104,19 +106,19 @@ const FinaleSection = () => {
               return (
                 <div
                   key={index}
-                  className="medical-card-container"
+                  className="medical-card-container cursor-pointer"
                   onClick={() => handleCardFlip(index)}
                 >
                   <div className={`medical-card-flip ${flippedCards.has(index) ? 'is-flipped' : ''}`}>
-                    <div className="medical-card-front">
-                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 mb-2 mx-auto" />
-                      <span className="text-center text-xs sm:text-sm font-semibold leading-tight">
+                    <div className="medical-card-front bg-gradient-to-br from-blue-600 to-blue-800 border-2 border-blue-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 mb-2 mx-auto text-white" />
+                      <span className="text-center text-xs sm:text-sm font-bold leading-tight text-white">
                         {card.front}
                       </span>
                     </div>
-                    <div className="medical-card-back">
-                      <Heart className="w-4 h-4 sm:w-5 sm:h-5 mb-2 mx-auto text-red-600" />
-                      <span className="text-center text-xs sm:text-sm font-semibold leading-tight">
+                    <div className="medical-card-back bg-gradient-to-br from-red-500 to-pink-600 border-2 border-red-400 shadow-lg">
+                      <Heart className="w-5 h-5 sm:w-6 sm:h-6 mb-2 mx-auto text-white animate-pulse" />
+                      <span className="text-center text-xs sm:text-sm font-bold leading-tight text-white">
                         {card.back}
                       </span>
                     </div>
