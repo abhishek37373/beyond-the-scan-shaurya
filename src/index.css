@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -102,11 +103,6 @@
   to { transform: rotateY(180deg); }
 }
 
-@keyframes card-hover-lift {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-4px) scale(1.02); }
-}
-
 /* Global styles */
 * {
   box-sizing: border-box;
@@ -172,18 +168,11 @@ body {
   perspective: 1000px;
   cursor: pointer;
   min-height: 80px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 16px;
-  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .medical-card-container:hover {
-  animation: card-hover-lift 0.3s ease-out forwards;
-  filter: brightness(1.1);
-}
-
-.medical-card-container:active {
-  transform: translateY(-2px) scale(0.98);
+  transform: translateY(-2px);
 }
 
 .medical-card-flip {
@@ -206,7 +195,7 @@ body {
   height: 100%;
   min-height: 80px;
   backface-visibility: hidden;
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,73 +205,32 @@ body {
   font-size: 0.75rem;
   text-align: center;
   line-height: 1.3;
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    0 4px 10px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border: 2px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.medical-card-front::before,
-.medical-card-back::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-  z-index: -1;
-}
-
-.medical-card-container:hover .medical-card-front::before,
-.medical-card-container:hover .medical-card-back::before {
-  left: 100%;
-}
-
-/* Ensure text is always visible with proper z-index */
-.medical-card-front > *,
-.medical-card-back > * {
-  position: relative;
-  z-index: 2;
-  color: inherit;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .medical-card-front {
-  background: linear-gradient(135deg, var(--medical-blue) 0%, #1e40af 50%, #1d4ed8 100%);
+  background: linear-gradient(135deg, var(--medical-blue), #1e40af);
   color: white;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .medical-card-front:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, var(--medical-blue) 50%, #2563eb 100%);
-  box-shadow: 
-    0 12px 35px rgba(37, 99, 235, 0.4),
-    0 6px 15px rgba(37, 99, 235, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #1d4ed8, var(--medical-blue));
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 .medical-card-back {
-  background: linear-gradient(135deg, var(--warm-gold) 0%, #f59e0b 50%, #fbbf24 100%);
+  background: linear-gradient(135deg, var(--warm-gold), #f59e0b);
   color: #1f2937;
   transform: rotateY(180deg);
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .medical-card-back:hover {
-  background: linear-gradient(135deg, #fbbf24 0%, var(--warm-gold) 50%, #f59e0b 100%);
-  box-shadow: 
-    0 12px 35px rgba(255, 215, 0, 0.4),
-    0 6px 15px rgba(255, 215, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #fbbf24, var(--warm-gold));
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
 }
 
 /* Typewriter effect */
@@ -301,16 +249,12 @@ body {
   font-family: var(--font-mono);
   padding: 20px;
   border: 2px solid #e5e7eb;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
   margin: 0 auto;
   position: relative;
   max-height: 80vh;
   overflow-y: auto;
-  backdrop-filter: blur(10px);
 }
 
 /* Pulse heart animation */
@@ -340,17 +284,10 @@ body {
 }
 
 /* Mobile-first responsive design */
-@media (max-width: 420px) {
-  /* Optimized for 420px width screens */
-  .hero-section {
-    background-position: 40% center !important;
-  }
-}
-
 @media (max-width: 640px) {
   /* Hero image mobile optimization */
   .hero-section {
-    background-position: 35% center !important;
+    background-position: 30% center !important;
   }
   
   .medical-card-front,
@@ -358,18 +295,15 @@ body {
     min-height: 70px;
     padding: 8px;
     font-size: 0.7rem;
-    border-radius: 12px;
   }
   
   .medical-card-container {
     min-height: 70px;
-    border-radius: 12px;
   }
   
   .prescription-pad {
     padding: 16px;
     margin: 16px;
-    border-radius: 12px;
   }
 }
 
@@ -379,11 +313,6 @@ body {
     font-size: 0.8rem;
     padding: 10px;
     min-height: 80px;
-    border-radius: 14px;
-  }
-  
-  .medical-card-container {
-    border-radius: 14px;
   }
 }
 
@@ -393,16 +322,10 @@ body {
     font-size: 0.9rem;
     padding: 12px;
     min-height: 90px;
-    border-radius: 16px;
-  }
-  
-  .medical-card-container {
-    border-radius: 16px;
   }
   
   .prescription-pad {
     padding: 24px;
-    border-radius: 16px;
   }
 }
 
@@ -425,15 +348,8 @@ body {
 /* Enhanced accessibility and focus styles */
 .medical-card-container:focus,
 button:focus {
-  outline: 3px solid var(--scan-blue);
+  outline: 2px solid var(--scan-blue);
   outline-offset: 2px;
-  border-radius: 16px;
-}
-
-.medical-card-container:focus-visible {
-  box-shadow: 
-    0 0 0 3px var(--scan-blue),
-    0 8px 25px rgba(0, 191, 255, 0.3);
 }
 
 /* Performance optimizations */
@@ -443,11 +359,6 @@ button:focus {
 
 .will-change-opacity {
   will-change: opacity;
-}
-
-/* Smooth scrolling for better UX */
-html {
-  scroll-behavior: smooth;
 }
 
 /* ... keep existing code (shadcn layer base styles) */

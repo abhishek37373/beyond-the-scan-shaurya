@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 
 interface ScanLayerProps {
@@ -65,19 +66,18 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
           </h2>
         )}
 
-        {/* Image Container - Enhanced mobile optimization */}
+        {/* Image Container - Optimized for mobile faces visibility */}
         <div className="relative mb-6 inline-block w-full max-w-lg mx-auto">
           <img
             src={imageUrl}
             alt={headline}
-            className={`w-full h-auto max-h-[60vh] object-contain rounded-lg shadow-2xl transition-all duration-2000 ${
+            className={`w-full h-auto max-h-[60vh] object-contain object-center rounded-lg shadow-2xl transition-all duration-2000 ${
               imageRevealed ? '' : 'xray-filter'
             }`}
             style={{
               filter: imageRevealed ? 'none' : 'grayscale(1) sepia(1) hue-rotate(180deg) saturate(3)',
-              objectPosition: 'center 25%' // Better mobile face positioning
+              objectPosition: 'center 30%'
             }}
-            loading="lazy"
           />
         </div>
 

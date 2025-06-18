@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Heart } from 'lucide-react';
 
@@ -35,11 +36,11 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="min-h-screen relative flex items-center justify-center hero-section"
+      className="min-h-screen relative flex items-center justify-center"
       style={{
         backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: '35% center', // Default mobile positioning
+        backgroundPosition: 'left center', // Mobile-first: focus on left side where face is
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -56,7 +57,7 @@ const HeroSection = () => {
         style={{
           backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: '35% center', // Consistent positioning
+          backgroundPosition: 'left center', // Ensure face visibility on mobile
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
