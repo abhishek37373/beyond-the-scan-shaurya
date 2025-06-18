@@ -75,13 +75,13 @@ const HeroSection = () => {
         {textVisible && (
           <>
             <h1 
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono mb-4 sm:mb-6 text-reveal leading-tight font-medium"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-mono mb-3 sm:mb-4 md:mb-6 text-reveal leading-tight font-medium text-white"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               Being a radiologist, you see what others can't.
             </h1>
             <h2 
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-warm-gold text-reveal-delayed leading-tight font-semibold"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-serif text-reveal-delayed leading-tight font-semibold"
               style={{ 
                 fontFamily: 'var(--font-serif)',
                 color: 'var(--warm-gold)'
