@@ -4,7 +4,6 @@ import HeroSection from '../components/HeroSection';
 import ScanLayer from '../components/ScanLayer';
 import FinaleSection from '../components/FinaleSection';
 import AudioControl from '../components/AudioControl';
-import MedicalHeader from '../components/MedicalHeader';
 
 const Index = () => {
   const [audioPlaying, setAudioPlaying] = useState(false);
@@ -49,9 +48,6 @@ const Index = () => {
         preload="auto"
         src="https://dl.dropbox.com/scl/fi/jkg5bw9c1v9qknomg8p2f/Shaurya-2.mp3?rlkey=s3b5nq1oi56jh9g04urv0aa95&st=9ugta2qr"
       />
-
-      {/* Medical Header */}
-      <MedicalHeader />
 
       {/* Audio Control */}
       <AudioControl isPlaying={audioPlaying} onToggle={toggleAudio} />

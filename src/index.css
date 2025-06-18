@@ -14,16 +14,28 @@
   --warm-gold: #FFD700;
   --paper-white: #FFF8F0;
   --text-light: #E0E0E0;
+  --medical-blue: #2563eb;
+  --medical-green: #16a34a;
+  --medical-red: #dc2626;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Roboto Mono', 'SF Mono', Monaco, Consolas, monospace;
   --font-serif: 'Lora', Georgia, serif;
   --font-script: 'Dancing Script', cursive;
 }
 
-/* Animation Keyframes */
+/* Enhanced Animation Keyframes */
 @keyframes scan-wipe {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% { 
+    transform: translateY(-100%); 
+    opacity: 0.8; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(100%); 
+    opacity: 0.8; 
+  }
 }
 
 @keyframes xray-to-color {
@@ -38,7 +50,7 @@
 @keyframes text-fade-in {
   0% { 
     opacity: 0; 
-    transform: translateY(10px); 
+    transform: translateY(20px); 
   }
   100% { 
     opacity: 1; 
@@ -46,9 +58,23 @@
   }
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+@keyframes medical-pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 0.8; 
+  }
+}
+
+@keyframes medical-heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
 }
 
 @keyframes typewriter {
@@ -72,10 +98,9 @@
   }
 }
 
-@keyframes bounce-arrow {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-10px); }
-  60% { transform: translateY(-5px); }
+@keyframes medical-card-flip {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(180deg); }
 }
 
 /* Global styles */
@@ -93,25 +118,27 @@ body {
   line-height: 1.6;
 }
 
-/* Utility classes */
+/* Enhanced Utility classes */
 .scan-line {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--scan-blue);
-  box-shadow: 0 0 10px var(--scan-blue);
+  background: linear-gradient(90deg, transparent, var(--scan-blue), transparent);
+  box-shadow: 0 0 15px var(--scan-blue);
   z-index: 10;
+  will-change: transform;
 }
 
 .scan-line.animated {
   animation: scan-wipe 1.2s ease-out;
 }
 
-/* Hero specific styles */
+/* Hero specific styles with mobile optimization */
 .xray-filter {
   filter: grayscale(1) sepia(1) hue-rotate(180deg) saturate(3);
+  will-change: filter;
 }
 
 .color-reveal {
@@ -121,66 +148,89 @@ body {
 .text-reveal {
   opacity: 0;
   animation: text-fade-in 0.8s ease-out forwards;
+  will-change: opacity, transform;
 }
 
 .text-reveal-delayed {
   opacity: 0;
   animation: text-fade-in 0.8s 0.4s ease-out forwards;
+  will-change: opacity, transform;
 }
 
-.scroll-arrow {
+.scroll-medical-icon {
   opacity: 0;
-  animation: text-fade-in 0.5s 2.5s ease-out forwards, bounce-arrow 2s 3s infinite;
+  animation: text-fade-in 0.5s 2.5s ease-out forwards, medical-pulse 3s 3s infinite;
+  will-change: opacity, transform;
 }
 
-/* Card flip styles - Mobile-first approach */
-.card-container {
+/* Enhanced Medical Card Styles */
+.medical-card-container {
   perspective: 1000px;
   cursor: pointer;
-  min-height: 60px;
+  min-height: 80px;
+  transition: transform 0.3s ease;
 }
 
-.card-flip {
+.medical-card-container:hover {
+  transform: translateY(-2px);
+}
+
+.medical-card-flip {
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   width: 100%;
   height: 100%;
+  will-change: transform;
 }
 
-.card-flip.is-flipped {
+.medical-card-flip.is-flipped {
   transform: rotateY(180deg);
 }
 
-.card-front,
-.card-back {
+.medical-card-front,
+.medical-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 80px;
   backface-visibility: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 12px;
   font-weight: 600;
   font-size: 0.75rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.card-front {
-  background: linear-gradient(135deg, var(--scan-blue), #0080CC);
+.medical-card-front {
+  background: linear-gradient(135deg, var(--medical-blue), #1e40af);
   color: white;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.card-back {
-  background: linear-gradient(135deg, var(--warm-gold), #CC9900);
-  color: #333;
+.medical-card-front:hover {
+  background: linear-gradient(135deg, #1d4ed8, var(--medical-blue));
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.medical-card-back {
+  background: linear-gradient(135deg, var(--warm-gold), #f59e0b);
+  color: #1f2937;
   transform: rotateY(180deg);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.medical-card-back:hover {
+  background: linear-gradient(135deg, #fbbf24, var(--warm-gold));
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
 }
 
 /* Typewriter effect */
@@ -189,23 +239,27 @@ body {
   border-right: .15em solid var(--scan-blue);
   white-space: pre-wrap;
   animation: typewriter 4s steps(150, end), blink-caret .75s step-end infinite;
+  will-change: width;
 }
 
-/* Prescription pad styles */
+/* Enhanced Prescription pad styles */
 .prescription-pad {
   background: var(--paper-white);
   color: #333;
   font-family: var(--font-mono);
-  padding: 16px;
-  border: 1px solid #DDD;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  padding: 20px;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
   margin: 0 auto;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 /* Pulse heart animation */
 .pulse-heart {
-  animation: pulse 2.5s infinite;
+  animation: medical-heartbeat 2.5s infinite;
   display: inline-block;
 }
 
@@ -220,7 +274,7 @@ body {
   z-index: 0;
 }
 
-/* Animation classes */
+/* Enhanced Animation classes */
 .fade-out {
   animation: fade-and-slide-up 0.8s ease-out forwards;
 }
@@ -230,44 +284,84 @@ body {
 }
 
 /* Mobile-first responsive design */
-@media (min-width: 480px) {
-  .card-front,
-  .card-back {
-    font-size: 0.875rem;
-    padding: 10px;
+@media (max-width: 640px) {
+  /* Hero image mobile optimization */
+  .hero-section {
+    background-position: 30% center !important;
   }
   
-  .card-container {
+  .medical-card-front,
+  .medical-card-back {
     min-height: 70px;
+    padding: 8px;
+    font-size: 0.7rem;
+  }
+  
+  .medical-card-container {
+    min-height: 70px;
+  }
+  
+  .prescription-pad {
+    padding: 16px;
+    margin: 16px;
+  }
+}
+
+@media (min-width: 480px) {
+  .medical-card-front,
+  .medical-card-back {
+    font-size: 0.8rem;
+    padding: 10px;
+    min-height: 80px;
   }
 }
 
 @media (min-width: 640px) {
-  .card-front,
-  .card-back {
-    font-size: 1rem;
+  .medical-card-front,
+  .medical-card-back {
+    font-size: 0.9rem;
     padding: 12px;
-  }
-  
-  .card-container {
-    min-height: 80px;
+    min-height: 90px;
   }
   
   .prescription-pad {
-    padding: 20px;
+    padding: 24px;
   }
 }
 
 @media (min-width: 768px) {
-  .card-container {
+  .medical-card-container {
     min-height: 100px;
   }
   
+  .medical-card-front,
+  .medical-card-back {
+    min-height: 100px;
+    font-size: 1rem;
+  }
+  
   .prescription-pad {
-    padding: 25px;
+    padding: 28px;
   }
 }
 
+/* Enhanced accessibility and focus styles */
+.medical-card-container:focus,
+button:focus {
+  outline: 2px solid var(--scan-blue);
+  outline-offset: 2px;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* ... keep existing code (shadcn layer base styles) */
 @layer base {
   :root {
     --background: 0 0% 100%;

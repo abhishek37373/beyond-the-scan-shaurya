@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Heart } from 'lucide-react';
 
 const HeroSection = () => {
   const [scanStarted, setScanStarted] = useState(false);
@@ -35,10 +36,12 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="min-h-screen relative flex items-center justify-center bg-cover bg-center"
+      className="min-h-screen relative flex items-center justify-center"
       style={{
         backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
-        backgroundPosition: 'center 20%'
+        backgroundSize: 'cover',
+        backgroundPosition: 'left center', // Mobile-first: focus on left side where face is
+        backgroundRepeat: 'no-repeat'
       }}
     >
       {/* Scan Line */}
@@ -48,13 +51,14 @@ const HeroSection = () => {
 
       {/* Image Overlay */}
       <div 
-        className={`absolute inset-0 bg-cover transition-all duration-1500 ${
+        className={`absolute inset-0 transition-all duration-1500 ${
           colorReveal ? '' : 'xray-filter'
         }`}
         style={{
           backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
-          backgroundPosition: 'center 20%',
-          backgroundSize: 'cover'
+          backgroundSize: 'cover',
+          backgroundPosition: 'left center', // Ensure face visibility on mobile
+          backgroundRepeat: 'no-repeat'
         }}
       ></div>
 
@@ -89,13 +93,13 @@ const HeroSection = () => {
         )}
       </div>
 
-      {/* Scroll Arrow */}
+      {/* Medical Device Scroll Icon */}
       {scrollArrowVisible && (
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 scroll-arrow">
-          <div className="w-5 h-8 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce"></div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-medical-icon flex flex-col items-center">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-3 mb-2 hover:bg-white/20 transition-all duration-300">
+            <Heart className="w-6 h-6 text-red-500 animate-pulse" />
           </div>
-          <p className="text-xs mt-2 text-center text-white/80">Scroll to explore</p>
+          <p className="text-xs text-center text-white/80 font-medium">Scroll to explore</p>
         </div>
       )}
     </section>
