@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { X, Heart, Activity, Stethoscope, Cross } from 'lucide-react';
 
@@ -49,10 +48,11 @@ const FinaleSection = () => {
       top: 0,
       behavior: 'smooth'
     });
-    // Optionally hide the prescription after scrolling
-    setTimeout(() => {
-      setShowPrescription(false);
-    }, 800);
+    
+    // Reset all states to original
+    setShowPrescription(false);
+    setMonitorFaded(false);
+    setFlippedCards(new Set()); // Reset cards to original state
   };
 
   return (

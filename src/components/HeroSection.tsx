@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Heart } from 'lucide-react';
 
@@ -40,7 +39,7 @@ const HeroSection = () => {
       style={{
         backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'left center', // Mobile-first: focus on left side where face is
+        backgroundPosition: '30% center', // Improved mobile positioning
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -57,7 +56,7 @@ const HeroSection = () => {
         style={{
           backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'left center', // Ensure face visibility on mobile
+          backgroundPosition: '30% center', // Improved mobile positioning
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
