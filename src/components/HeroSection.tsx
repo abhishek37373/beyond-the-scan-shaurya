@@ -35,9 +35,10 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="full-screen relative flex items-center justify-center bg-cover bg-center"
+      className="min-h-screen relative flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`
+        backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
+        backgroundPosition: 'center 20%'
       }}
     >
       {/* Scan Line */}
@@ -47,11 +48,13 @@ const HeroSection = () => {
 
       {/* Image Overlay */}
       <div 
-        className={`absolute inset-0 bg-cover bg-center transition-all duration-1500 ${
+        className={`absolute inset-0 bg-cover transition-all duration-1500 ${
           colorReveal ? '' : 'xray-filter'
         }`}
         style={{
-          backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`
+          backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
+          backgroundPosition: 'center 20%',
+          backgroundSize: 'cover'
         }}
       ></div>
 
@@ -63,18 +66,18 @@ const HeroSection = () => {
         }}
       ></div>
 
-      {/* Hero Text - Enhanced mobile-first typography */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+      {/* Hero Text - Mobile-first typography */}
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {textVisible && (
           <>
             <h1 
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-mono mb-4 sm:mb-6 text-reveal leading-tight"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono mb-4 sm:mb-6 text-reveal leading-tight font-medium"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               Being a radiologist, you see what others can't.
             </h1>
             <h2 
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-warm-gold text-reveal-delayed leading-tight"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-warm-gold text-reveal-delayed leading-tight font-semibold"
               style={{ 
                 fontFamily: 'var(--font-serif)',
                 color: 'var(--warm-gold)'
@@ -88,11 +91,11 @@ const HeroSection = () => {
 
       {/* Scroll Arrow */}
       {scrollArrowVisible && (
-        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 scroll-arrow">
-          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-2 sm:h-3 bg-white rounded-full mt-1 sm:mt-2 animate-bounce"></div>
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 scroll-arrow">
+          <div className="w-5 h-8 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce"></div>
           </div>
-          <p className="text-xs sm:text-sm mt-2 text-center text-white/80">Scroll to explore</p>
+          <p className="text-xs mt-2 text-center text-white/80">Scroll to explore</p>
         </div>
       )}
     </section>

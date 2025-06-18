@@ -47,7 +47,7 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
   return (
     <section 
       ref={sectionRef}
-      className="full-screen scan-section flex flex-col items-center justify-center relative"
+      className="min-h-screen py-12 px-4 flex flex-col items-center justify-center relative"
       style={{ backgroundColor: 'var(--dark-bg)' }}
     >
       {/* Scan Line */}
@@ -55,27 +55,28 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
         <div className="scan-line animated"></div>
       )}
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        {/* Headline - Enhanced mobile typography */}
+      <div className="max-w-4xl mx-auto text-center w-full">
+        {/* Headline - Mobile-first typography */}
         {isVisible && (
           <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-reveal leading-tight"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-reveal leading-tight"
             style={{ color: 'var(--scan-blue)' }}
           >
             {headline}
           </h2>
         )}
 
-        {/* Image Container - Better mobile sizing */}
-        <div className="relative mb-6 sm:mb-8 inline-block">
+        {/* Image Container - Optimized for mobile faces visibility */}
+        <div className="relative mb-6 inline-block w-full max-w-lg mx-auto">
           <img
             src={imageUrl}
             alt={headline}
-            className={`w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl h-auto rounded-lg shadow-2xl transition-all duration-2000 ${
+            className={`w-full h-auto max-h-[60vh] object-contain object-center rounded-lg shadow-2xl transition-all duration-2000 ${
               imageRevealed ? '' : 'xray-filter'
             }`}
             style={{
-              filter: imageRevealed ? 'none' : 'grayscale(1) sepia(1) hue-rotate(180deg) saturate(3)'
+              filter: imageRevealed ? 'none' : 'grayscale(1) sepia(1) hue-rotate(180deg) saturate(3)',
+              objectPosition: 'center 30%'
             }}
           />
         </div>
@@ -83,8 +84,8 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
         {/* Caption - Enhanced mobile typography */}
         {captionVisible && (
           <p 
-            className={`text-lg sm:text-xl md:text-2xl text-reveal leading-relaxed px-2 ${
-              isPlayful ? 'font-script text-2xl sm:text-3xl' : ''
+            className={`text-base sm:text-lg md:text-xl text-reveal leading-relaxed px-2 ${
+              isPlayful ? 'font-script text-lg sm:text-xl md:text-2xl' : ''
             }`}
             style={{ 
               color: 'var(--text-light)',
