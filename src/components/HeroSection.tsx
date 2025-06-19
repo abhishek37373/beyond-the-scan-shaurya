@@ -38,9 +38,9 @@ const HeroSection = () => {
     <section 
       className="min-h-screen relative flex items-center justify-center"
       style={{
-        backgroundImage: `url('/lovable-uploads/image.png')`,
+        backgroundImage: `url('/lovable-uploads/d631acd8-f81d-41b9-8a4c-593f2c39c33d.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center center', // Mobile-optimized center positioning
+        backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -55,9 +55,9 @@ const HeroSection = () => {
           colorReveal ? '' : 'xray-filter'
         }`}
         style={{
-          backgroundImage: `url('/lovable-uploads/image.png')`,
+          backgroundImage: `url('/lovable-uploads/d631acd8-f81d-41b9-8a4c-593f2c39c33d.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center center', // Ensure consistent positioning
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
