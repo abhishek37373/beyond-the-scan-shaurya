@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { X, Heart, Activity, Stethoscope, Cross } from 'lucide-react';
+import { X, Heart, Activity, Stethoscope, Cross, Zap, Target, Shield } from 'lucide-react';
 
 const FinaleSection = () => {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
@@ -9,13 +9,13 @@ const FinaleSection = () => {
   const blipAudioRef = useRef<HTMLAudioElement>(null);
 
   const cardData = [
-    { front: 'S - Scan', back: 'S - Supportive', icon: Activity },
-    { front: 'H - Hemoglobin', back: 'H - Humorous', icon: Heart },
-    { front: 'A - Artery', back: 'A - Affectionate', icon: Activity },
-    { front: 'U - Ultrasound', back: 'U - Understanding', icon: Stethoscope },
-    { front: 'R - Radiography', back: 'R - Reliable', icon: Cross },
-    { front: 'Y - Yield', back: 'Y - Youthful', icon: Heart },
-    { front: 'A - Anatomy', back: 'A - Adorable', icon: Activity }
+    { front: 'S - Scan', back: 'S - Supportive', icon: Activity, backIcon: Heart },
+    { front: 'H - Hemoglobin', back: 'H - Humorous', icon: Heart, backIcon: Zap },
+    { front: 'A - Artery', back: 'A - Affectionate', icon: Activity, backIcon: Target },
+    { front: 'U - Ultrasound', back: 'U - Understanding', icon: Stethoscope, backIcon: Shield },
+    { front: 'R - Radiography', back: 'R - Reliable', icon: Cross, backIcon: Heart },
+    { front: 'Y - Yield', back: 'Y - Youthful', icon: Heart, backIcon: Zap },
+    { front: 'A - Anatomy', back: 'A - Adorable', icon: Activity, backIcon: Heart }
   ];
 
   const handleCardFlip = (index: number) => {
@@ -44,15 +44,17 @@ const FinaleSection = () => {
     }
   };
 
-  const handleCloseAndScrollTop = () => {
+  const handleCloseAndReset = () => {
+    // Reset all states
+    setShowPrescription(false);
+    setMonitorFaded(false);
+    setFlippedCards(new Set());
+    
+    // Scroll to top smoothly
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-    // Optionally hide the prescription after scrolling
-    setTimeout(() => {
-      setShowPrescription(false);
-    }, 800);
   };
 
   return (
@@ -61,7 +63,7 @@ const FinaleSection = () => {
       <audio
         ref={blipAudioRef}
         preload="auto"
-        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxXp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+"
+        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxXp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+"
       />
 
       <section 
@@ -97,10 +99,11 @@ const FinaleSection = () => {
             Tap each letter to reveal the core components.
           </p>
 
-          {/* Enhanced Medical Cards Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 mb-6">
+          {/* Enhanced Medical Cards Grid - Mobile First */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-3 md:gap-4 mb-6">
             {cardData.map((card, index) => {
-              const IconComponent = card.icon;
+              const FrontIcon = card.icon;
+              const BackIcon = card.backIcon;
               return (
                 <div
                   key={index}
@@ -109,14 +112,18 @@ const FinaleSection = () => {
                 >
                   <div className={`medical-card-flip ${flippedCards.has(index) ? 'is-flipped' : ''}`}>
                     <div className="medical-card-front">
-                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 mb-2 mx-auto" />
-                      <span className="text-center text-xs sm:text-sm font-semibold leading-tight">
+                      <div className="medical-card-icon-wrapper mb-2">
+                        <FrontIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+                      <span className="medical-card-text">
                         {card.front}
                       </span>
                     </div>
                     <div className="medical-card-back">
-                      <Heart className="w-4 h-4 sm:w-5 sm:h-5 mb-2 mx-auto text-red-600" />
-                      <span className="text-center text-xs sm:text-sm font-semibold leading-tight">
+                      <div className="medical-card-icon-wrapper mb-2 text-red-600">
+                        <BackIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+                      <span className="medical-card-text">
                         {card.back}
                       </span>
                     </div>
@@ -127,7 +134,7 @@ const FinaleSection = () => {
           </div>
         </div>
 
-        {/* Enhanced Prescription Pad with Close Button */}
+        {/* Enhanced Prescription Pad with Proper Close Functionality */}
         {showPrescription && (
           <div 
             id="prescription-pad"
@@ -136,16 +143,17 @@ const FinaleSection = () => {
             <div className="prescription-pad max-w-sm sm:max-w-md w-full relative">
               {/* Close Button */}
               <button
-                onClick={handleCloseAndScrollTop}
-                className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onClick={handleCloseAndReset}
+                className="absolute -top-3 -right-3 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-100 transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 z-10"
                 aria-label="Close prescription and scroll to top"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
-                    handleCloseAndScrollTop();
+                    e.preventDefault();
+                    handleCloseAndReset();
                   }
                 }}
               >
-                <X className="w-5 h-5 text-gray-600" />
+                <X className="w-6 h-6 text-gray-600" />
               </button>
 
               <div className="text-center mb-4">

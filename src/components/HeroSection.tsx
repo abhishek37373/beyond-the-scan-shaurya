@@ -38,9 +38,9 @@ const HeroSection = () => {
     <section 
       className="min-h-screen relative flex items-center justify-center"
       style={{
-        backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
+        backgroundImage: `url('/lovable-uploads/image.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'left center', // Mobile-first: focus on left side where face is
+        backgroundPosition: 'center center', // Mobile-optimized center positioning
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -55,9 +55,9 @@ const HeroSection = () => {
           colorReveal ? '' : 'xray-filter'
         }`}
         style={{
-          backgroundImage: `url('/lovable-uploads/6982a748-41ee-4927-9ea3-458f5c1612cd.png')`,
+          backgroundImage: `url('/lovable-uploads/image.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'left center', // Ensure face visibility on mobile
+          backgroundPosition: 'center center', // Ensure consistent positioning
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
@@ -93,10 +93,10 @@ const HeroSection = () => {
         )}
       </div>
 
-      {/* Medical Device Scroll Icon */}
+      {/* Enhanced Medical Device Scroll Icon */}
       {scrollArrowVisible && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-medical-icon flex flex-col items-center">
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-3 mb-2 hover:bg-white/20 transition-all duration-300">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-3 mb-2 hover:bg-white/20 transition-all duration-300 cursor-pointer">
             <Heart className="w-6 h-6 text-red-500 animate-pulse" />
           </div>
           <p className="text-xs text-center text-white/80 font-medium">Scroll to explore</p>

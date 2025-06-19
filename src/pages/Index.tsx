@@ -55,7 +55,7 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Scan Layer Sections */}
+      {/* Scan Layer Sections - All images optimized for mobile viewport */}
       <ScanLayer
         headline="The Original Blueprint"
         imageUrl="/lovable-uploads/64c68798-0f66-4d60-bb84-440495f1994f.png"

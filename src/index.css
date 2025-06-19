@@ -17,6 +17,8 @@
   --medical-blue: #2563eb;
   --medical-green: #16a34a;
   --medical-red: #dc2626;
+  --medical-purple: #7c3aed;
+  --medical-teal: #0d9488;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Roboto Mono', 'SF Mono', Monaco, Consolas, monospace;
   --font-serif: 'Lora', Georgia, serif;
@@ -98,9 +100,13 @@
   }
 }
 
-@keyframes medical-card-flip {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(180deg); }
+@keyframes medical-card-glow {
+  0%, 100% { 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+  }
+  50% { 
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4); 
+  }
 }
 
 /* Global styles */
@@ -163,16 +169,21 @@ body {
   will-change: opacity, transform;
 }
 
-/* Enhanced Medical Card Styles */
+/* Enhanced Medical Card Styles - Mobile First */
 .medical-card-container {
   perspective: 1000px;
   cursor: pointer;
-  min-height: 80px;
+  min-height: 90px;
   transition: transform 0.3s ease;
+  touch-action: manipulation; /* Optimized for mobile touch */
 }
 
 .medical-card-container:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+.medical-card-container:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 .medical-card-flip {
@@ -193,44 +204,96 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  min-height: 80px;
+  min-height: 90px;
   backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 12px 8px;
   font-weight: 600;
-  font-size: 0.75rem;
   text-align: center;
-  line-height: 1.3;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   border: 2px solid transparent;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Enhanced Medical Card Front */
 .medical-card-front {
-  background: linear-gradient(135deg, var(--medical-blue), #1e40af);
+  background: linear-gradient(135deg, var(--medical-blue) 0%, #1e40af 50%, var(--medical-purple) 100%);
   color: white;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.medical-card-front::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--scan-blue), var(--medical-purple), var(--medical-blue));
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0.8;
 }
 
 .medical-card-front:hover {
-  background: linear-gradient(135deg, #1d4ed8, var(--medical-blue));
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1d4ed8 0%, var(--medical-blue) 50%, var(--medical-purple) 100%);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  animation: medical-card-glow 2s infinite;
 }
 
+/* Enhanced Medical Card Back */
 .medical-card-back {
-  background: linear-gradient(135deg, var(--warm-gold), #f59e0b);
+  background: linear-gradient(135deg, var(--warm-gold) 0%, #f59e0b 50%, #eab308 100%);
   color: #1f2937;
   transform: rotateY(180deg);
   border-color: rgba(0, 0, 0, 0.1);
 }
 
+.medical-card-back::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--warm-gold), #f59e0b, var(--medical-teal));
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
 .medical-card-back:hover {
-  background: linear-gradient(135deg, #fbbf24, var(--warm-gold));
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #fbbf24 0%, var(--warm-gold) 50%, var(--medical-teal) 100%);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* Medical Card Icon and Text Styling */
+.medical-card-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  margin: 0 auto;
+}
+
+.medical-card-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-align: center;
 }
 
 /* Typewriter effect */
@@ -247,10 +310,10 @@ body {
   background: var(--paper-white);
   color: #333;
   font-family: var(--font-mono);
-  padding: 20px;
-  border: 2px solid #e5e7eb;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-radius: 12px;
+  padding: 24px;
+  border: 3px solid #e5e7eb;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
   margin: 0 auto;
   position: relative;
   max-height: 80vh;
@@ -285,47 +348,63 @@ body {
 
 /* Mobile-first responsive design */
 @media (max-width: 640px) {
-  /* Hero image mobile optimization */
-  .hero-section {
-    background-position: 30% center !important;
-  }
-  
   .medical-card-front,
   .medical-card-back {
-    min-height: 70px;
-    padding: 8px;
-    font-size: 0.7rem;
+    min-height: 80px;
+    padding: 8px 6px;
+    border-radius: 12px;
+  }
+  
+  .medical-card-front::before,
+  .medical-card-back::before {
+    border-radius: 14px;
   }
   
   .medical-card-container {
-    min-height: 70px;
+    min-height: 80px;
+  }
+  
+  .medical-card-icon-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .medical-card-text {
+    font-size: 0.7rem;
   }
   
   .prescription-pad {
     padding: 16px;
-    margin: 16px;
+    margin: 12px;
+    border-radius: 12px;
   }
 }
 
 @media (min-width: 480px) {
+  .medical-card-text {
+    font-size: 0.75rem;
+  }
+  
   .medical-card-front,
   .medical-card-back {
-    font-size: 0.8rem;
-    padding: 10px;
-    min-height: 80px;
+    padding: 10px 8px;
+    min-height: 85px;
   }
 }
 
 @media (min-width: 640px) {
   .medical-card-front,
   .medical-card-back {
-    font-size: 0.9rem;
-    padding: 12px;
+    padding: 12px 10px;
     min-height: 90px;
   }
   
+  .medical-card-text {
+    font-size: 0.8rem;
+  }
+  
   .prescription-pad {
-    padding: 24px;
+    padding: 20px;
   }
 }
 
@@ -337,7 +416,16 @@ body {
   .medical-card-front,
   .medical-card-back {
     min-height: 100px;
-    font-size: 1rem;
+    padding: 14px 12px;
+  }
+  
+  .medical-card-text {
+    font-size: 0.85rem;
+  }
+  
+  .medical-card-icon-wrapper {
+    width: 44px;
+    height: 44px;
   }
   
   .prescription-pad {
@@ -345,11 +433,17 @@ body {
   }
 }
 
+@media (min-width: 1024px) {
+  .medical-card-text {
+    font-size: 0.9rem;
+  }
+}
+
 /* Enhanced accessibility and focus styles */
 .medical-card-container:focus,
 button:focus {
-  outline: 2px solid var(--scan-blue);
-  outline-offset: 2px;
+  outline: 3px solid var(--scan-blue);
+  outline-offset: 3px;
 }
 
 /* Performance optimizations */
