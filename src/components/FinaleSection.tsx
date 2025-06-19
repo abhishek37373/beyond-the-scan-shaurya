@@ -63,7 +63,7 @@ const FinaleSection = () => {
       <audio
         ref={blipAudioRef}
         preload="auto"
-        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxXp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+"
+        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxXp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcBjeT2fTNeysFJHfH8N2QQAoUXrTp66hVFApGn+"
       />
 
       <section 
@@ -99,42 +99,44 @@ const FinaleSection = () => {
             Tap each letter to reveal the core components.
           </p>
 
-          {/* Enhanced Medical Cards Grid - Fixed Layout */}
-          <div className="cards-grid mb-6">
-            {cardData.map((card, index) => {
-              const FrontIcon = card.icon;
-              const BackIcon = card.backIcon;
-              return (
-                <div
-                  key={index}
-                  className="medical-card-container"
-                  onClick={() => handleCardFlip(index)}
-                >
-                  <div className={`medical-card-flip ${flippedCards.has(index) ? 'is-flipped' : ''}`}>
-                    <div className="medical-card-front">
-                      <div className="medical-card-icon-wrapper mb-2">
-                        <FrontIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+          {/* Enhanced Medical Cards Grid - Fixed Position Layout */}
+          <div className="cards-grid-container mb-6">
+            <div className="cards-grid">
+              {cardData.map((card, index) => {
+                const FrontIcon = card.icon;
+                const BackIcon = card.backIcon;
+                return (
+                  <div
+                    key={index}
+                    className="medical-card-wrapper"
+                    onClick={() => handleCardFlip(index)}
+                  >
+                    <div className={`medical-card ${flippedCards.has(index) ? 'is-flipped' : ''}`}>
+                      <div className="medical-card-front">
+                        <div className="medical-card-icon-wrapper mb-2">
+                          <FrontIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <span className="medical-card-text">
+                          {card.front}
+                        </span>
                       </div>
-                      <span className="medical-card-text">
-                        {card.front}
-                      </span>
-                    </div>
-                    <div className="medical-card-back">
-                      <div className="medical-card-icon-wrapper mb-2 text-red-600">
-                        <BackIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <div className="medical-card-back">
+                        <div className="medical-card-icon-wrapper mb-2 text-red-600">
+                          <BackIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <span className="medical-card-text">
+                          {card.back}
+                        </span>
                       </div>
-                      <span className="medical-card-text">
-                        {card.back}
-                      </span>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Enhanced Prescription Pad with Proper Close Functionality */}
+        {/* Enhanced Prescription Pad with Doctor's Handwriting */}
         {showPrescription && (
           <div 
             id="prescription-pad"
@@ -161,23 +163,20 @@ const FinaleSection = () => {
                 <div className="h-px bg-gray-300 mb-4"></div>
               </div>
               
-              <pre className="typewriter text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">
-{`================================
-Rx: Shaurya
-
-DOSAGE:
-A lifetime of love, administered daily.
-
-INSTRUCTIONS:
-Take with endless laughter and joy. 
-May cause extreme happiness.
-
-REFILLS:
-Unlimited.
-
-Signed,
-All of Us Who Love You `}<span className="pulse-heart text-red-500">❤️</span>
-              </pre>
+              <div className="handwriting-prescription">
+                <div className="handwriting-text">
+                  <div className="prescription-line">Rx: Shaurya</div>
+                  <div className="prescription-line">DOSAGE:</div>
+                  <div className="prescription-line">A lifetime of love, administered daily.</div>
+                  <div className="prescription-line">INSTRUCTIONS:</div>
+                  <div className="prescription-line">Take with endless laughter and joy.</div>
+                  <div className="prescription-line">May cause extreme happiness.</div>
+                  <div className="prescription-line">REFILLS:</div>
+                  <div className="prescription-line">Unlimited.</div>
+                  <div className="prescription-line">Signed,</div>
+                  <div className="prescription-line">Abhishek and Kanu Priya <span className="pulse-heart text-red-500">❤️</span></div>
+                </div>
+              </div>
             </div>
           </div>
         )}
