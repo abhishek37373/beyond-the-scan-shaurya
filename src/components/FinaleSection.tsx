@@ -174,7 +174,7 @@ const FinaleSection = () => {
                   <div className="prescription-line">REFILLS:</div>
                   <div className="prescription-line">Unlimited.</div>
                   <div className="prescription-line">Signed,</div>
-                  <div className="prescription-line">Abhishek and Kanu Priya <span className="pulse-heart text-red-500">❤️</span></div>
+                  <div className="prescription-line">All of Us Who Love You <span className="pulse-heart text-red-500">❤️</span></div>
                 </div>
               </div>
             </div>

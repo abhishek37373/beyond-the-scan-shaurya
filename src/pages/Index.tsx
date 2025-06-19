@@ -65,7 +65,7 @@ const Index = () => {
       <ScanLayer
         headline="An Unbreakable Bond"
         imageUrl="/lovable-uploads/26782cf7-77d6-4d45-bd33-16267588960a.png"
-        caption="Abhishek, Kanupriya and you – Sibling goals!"
+        caption="With Abhishek and Kanupriya – Sibling goals!"
       />
 
       <ScanLayer
