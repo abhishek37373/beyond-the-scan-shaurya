@@ -66,17 +66,17 @@ const ScanLayer: React.FC<ScanLayerProps> = ({
           </h2>
         )}
 
-        {/* Image Container - Mobile-first responsive design */}
-        <div className="relative mb-6 inline-block w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+        {/* Image Container - Optimized for mobile faces visibility */}
+        <div className="relative mb-6 inline-block w-full max-w-lg mx-auto">
           <img
             src={imageUrl}
             alt={headline}
-            className={`w-full h-auto max-h-[50vh] sm:max-h-[55vh] md:max-h-[60vh] object-contain object-center rounded-lg shadow-2xl transition-all duration-2000 ${
+            className={`w-full h-auto max-h-[60vh] object-contain object-center rounded-lg shadow-2xl transition-all duration-2000 ${
               imageRevealed ? '' : 'xray-filter'
             }`}
             style={{
               filter: imageRevealed ? 'none' : 'grayscale(1) sepia(1) hue-rotate(180deg) saturate(3)',
-              objectPosition: 'center center'
+              objectPosition: 'center 30%'
             }}
           />
         </div>
